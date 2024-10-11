@@ -41,6 +41,11 @@ def calculate_and_display_average_price(data):
 
 
 def notify_if_strong_fluctuations(data, threshold):
+    '''
+    :param data: - DataFrame
+    :param threshold: - порог колебания цен в данный период
+    :return: - возвращаем процент колебания цена от заданного порога
+    '''
     max_ = data['Close'].max()
     min_ = data['Close'].min()
     difference_max_min = max_ - min_
