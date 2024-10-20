@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-
+import csv
 
 def create_and_save_plot(data, ticker, period, filename=None):
     plt.figure(figsize=(10, 6))
@@ -54,3 +54,19 @@ def notify_if_strong_fluctuations(data, threshold):
         return round(((difference_max_min*100)/threshold)-100, 2)
     else:
         return 0
+
+
+def export_data_to_csv(data, filename='1'):
+    '''
+    :param data: DataFrame
+    :param filename: Название файла
+    :return: Сохраняе загруженные данные об акциях в CSV файл.
+    '''
+    if filename == 'Close':
+        print('Работа программы завершена')
+    else:
+        # Создаем DataFrame из данных
+        df = pd.DataFrame(data)
+        # Сохраняем DataFrame в CSV файл
+        df.to_csv(filename, index=True)
+        print(f'Данные сохранены в файл {filename}. Работа программы завершена')

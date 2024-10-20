@@ -32,6 +32,8 @@ def main():
     else:
         print(f'Цена акций за период {period} не превышала заданного порога {threshold}')
 
+    filename = input("Введите имя файла для сохранения данных (пример, My_file): ")
+    dplt.export_data_to_csv(stock_data, filename=filename + ".csv")
 
 
 if __name__ == "__main__":
